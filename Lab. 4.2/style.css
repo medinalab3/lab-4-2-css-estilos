@@ -1,0 +1,191 @@
+/* ==========================================================
+   LABORATORIO 4.1 - Creación de una página web estilizada con CSS
+   ==========================================================
+   Este archivo demuestra:
+   1. Selectores de ELEMENTO (ej. body, h2, footer, article)
+   2. Selectores de ID (ej. #sobre-mi, #contacto, #miLienzo)
+   3. Selectores de CLASE (ej. .btn, .tarjeta-destacada)
+   4. El MODELO DE CAJA (margin, border, padding, width)
+   5. DISEÑO RESPONSIVO con media queries
+   ========================================================== */
+
+/* ----------------------------------------------------------
+   1. SELECTORES DE ELEMENTO
+   Aplican el mismo estilo a TODOS los elementos de ese tipo,
+   sin importar en qué sección estén.
+   ---------------------------------------------------------- */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+    color: #222
+;
+    margin: 0;
+    padding: 0;
+    background-color: #0a0a0a;
+}
+
+header, main, footer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #5e35b1;
+    color: #fff;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.2em;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+    margin-top: 15px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+section h2 {
+    border-bottom: 2px solid #5e35b1;
+    padding-bottom: 5px;
+}
+
+article {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+}
+
+figure {
+    margin: 15px 0;
+    text-align: center;
+}
+
+figcaption {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.85em;
+    color: #666;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+}
+
+/* ----------------------------------------------------------
+   2. SELECTORES DE ID
+   Un id es único en la página, así que estos estilos solo se
+   aplican a la sección o elemento exacto que tiene ese id.
+   ---------------------------------------------------------- */
+#sobre-mi {
+    background-color: #050505;
+    border-radius: 8px;
+    padding: 15px 20px;
+}
+
+#contacto {
+    text-align: center;
+}
+
+#miLienzo {
+    border: 1px solid #ccc;
+    display: block;
+    margin: 0 auto;
+}
+
+/* ----------------------------------------------------------
+   3. SELECTORES DE CLASE
+   Una clase se puede reutilizar en varios elementos distintos
+   de la página, a diferencia del id, que es único.
+   ---------------------------------------------------------- */
+.btn {
+    display: inline-block;
+    background-color: #5e35b1;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #5e35b1;
+}
+
+/* ----------------------------------------------------------
+   4. MODELO DE CAJA (Box Model)
+   Cada elemento HTML es una "caja" compuesta por: contenido,
+   padding (espacio interno), border (borde) y margin (espacio
+   externo). Esta clase le da a este artículo en particular un
+   modelo de caja distinto al artículo anterior: más padding,
+   un borde más grueso de color, esquinas más redondeadas y una
+   sombra que simula profundidad.
+   ---------------------------------------------------------- */
+.tarjeta-destacada {
+    box-sizing: border-box;    /* el padding y el borde se cuentan DENTRO del ancho total */
+    width: 100%;
+    padding: 25px;             /* más espacio interno que un artículo normal */
+    margin: 20px 0;            /* más espacio externo, arriba y abajo */
+    border: 3px solid #5e35b1; /* borde más grueso y de color, en vez del gris fino por defecto */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    background-color: #f5f9fd;
+}
+
+/* ----------------------------------------------------------
+   5. DISEÑO RESPONSIVO (Media Queries)
+   Estas reglas solo se aplican cuando el ancho de la pantalla
+   es de 600px o menos (por ejemplo, en un celular), ajustando
+   el diseño para que siga siendo legible y usable.
+   ---------------------------------------------------------- */
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    nav ul {
+        flex-direction: column;  /* el menú pasa de horizontal a vertical */
+        gap: 10px;
+        align-items: center;
+    }
+
+    header, main, footer {
+        padding: 15px;
+    }
+
+    .tarjeta-destacada {
+        padding: 15px;   /* menos espacio interno en pantallas pequeñas */
+    }
+
+    video, audio {
+        width: 100%;      /* el video y el audio ocupan todo el ancho disponible */
+    }
+}

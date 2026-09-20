@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<!--
+  Nombre: Gerardo J. Medina (GJ)
+  Universidad: Northbridge University
+  Curso: NCBTO - 2026-5CC - WADE 1000L - 3663ONL
+  Numero de estudiante: 2507056253
+  Laboratorio: Creación de una página web estilizada con CSS (Módulo 4)
+  Descripción: Continuación del proyecto del Módulo 3 (index 3.1.html),
+               ahora aplicando selectores CSS (elemento, clase, ID),
+               modelo de caja y diseño responsivo.
+-->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GJ Medina | Desarrollo Web</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!--
+      SEMÁNTICA HTML: <header> identifica el encabezado principal de la
+      página. A diferencia de un <div> genérico, el navegador y las
+      tecnologías de asistencia (lectores de pantalla) entienden que este
+      bloque es la cabecera del documento.
+    -->
+    <header>
+        <h1>Gerardo J. Medina</h1>
+        <p>Estudiante de Tecnología de la Información</p>
+
+        <!--
+          SEMÁNTICA HTML: <nav> marca un bloque de enlaces de navegación.
+          Esto ayuda a los lectores de pantalla a identificar rápidamente
+          el menú principal del sitio.
+        -->
+        <nav>
+            <ul>
+                <li><a href="#sobre-mi">Sobre mí</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#multimedia">Multimedia</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--
+      SEMÁNTICA HTML: <main> contiene el contenido principal y único de
+      la página (no se repite en otras páginas, a diferencia del header,
+      nav o footer). Solo debe haber un <main> por documento.
+    -->
+    <main>
+
+        <!--
+          SEMÁNTICA HTML: <section> agrupa contenido relacionado bajo un
+          mismo tema, normalmente con su propio encabezado.
+
+          SELECTOR DE ID: el id="sobre-mi" permite que el CSS apunte
+          únicamente a esta sección con #sobre-mi.
+        -->
+        <section id="sobre-mi">
+            <h2>Sobre mí</h2>
+            <p>
+                Soy estudiante de Tecnología de la Información en Northbridge University
+                y estoy cursando un programa doctoral en Tecnología Instruccional
+                y Educación a Distancia. Esta página fue creada como parte de un
+                laboratorio para practicar la <strong>sintaxis básica de HTML</strong>,
+                la <em>semántica de HTML5</em> y algunas de sus características más
+                nuevas.
+            </p>
+            <p>
+                Aquí abajo tienes una lista corta de mis áreas de interés:
+            </p>
+            <ul>
+                <li>Desarrollo web</li>
+                <li>Bases de datos</li>
+                <li>Sistemas operativos de código abierto</li>
+                <li>Tecnología educativa</li>
+            </ul>
+        </section>
+
+        <!--
+          SEMÁNTICA HTML: <article> representa contenido independiente
+          que tendría sentido por sí solo, como una publicación de blog
+          o una tarjeta de proyecto. A diferencia de <section>, un
+          <article> se puede sacar de la página y seguiría siendo
+          entendible por su cuenta.
+        -->
+        <section id="proyectos">
+            <h2>Proyectos</h2>
+
+            <article>
+                <h3>Laboratorio de estructura HTML/HTML5</h3>
+                <p>
+                    Página básica construida con Visual Studio Code, usando
+                    etiquetas de apertura y cierre, atributos y valores,
+                    para practicar la sintaxis fundamental de HTML.
+                </p>
+                <p>
+                    <!--
+                      SELECTOR DE CLASE: la clase "btn" se reutiliza aquí y
+                      también en el enlace de contacto más abajo, para que
+                      ambos luzcan igual sin repetir el estilo dos veces.
+                    -->
+                    <a href="https://github.com/medinalab3" target="_blank" class="btn">
+                        Ver mi repositorio en GitHub
+                    </a>
+                </p>
+            </article>
+
+            <!--
+              MODELO DE CAJA: la clase "tarjeta-destacada" le da a este
+              artículo un padding, un borde y una sombra distintos al
+              artículo anterior, para demostrar cómo el modelo de caja
+              permite variar el estilo de una sección en particular.
+            -->
+            <article class="tarjeta-destacada">
+                <!--
+                  HTML5: <figure> y <figcaption> permiten asociar una
+                  imagen (o video, gráfico, código, etc.) con su leyenda
+                  de forma semántica, en lugar de usar un <div> con un
+                  <p> suelto al lado.
+                -->
+                <figure>
+                    <img src="imagenes/captura-proyecto.png"
+                         alt="Captura del proyecto en Visual Studio Code"
+                         width="600">
+                    <figcaption>
+                        Captura de pantalla del proyecto abierto en Visual Studio Code.
+                    </figcaption>
+                </figure>
+            </article>
+        </section>
+
+        <section id="multimedia">
+            <h2>Multimedia (características de HTML5)</h2>
+            <p>
+                Antes de HTML5, reproducir video o audio en una página requería
+                complementos externos como Flash o Silverlight. HTML5 introdujo
+                las etiquetas nativas <code>&lt;video&gt;</code> y
+                <code>&lt;audio&gt;</code>, que no necesitan ningún plugin y
+                funcionan directamente en el navegador.
+            </p>
+
+            <h3>Video</h3>
+            <!--
+              HTML5: <video> con el atributo controls muestra los controles
+              de reproducción nativos del navegador (play, pausa, volumen).
+            -->
+            <video width="480" controls>
+                <source src="videos/demo.mp4" type="video/mp4">
+                Tu navegador no soporta la etiqueta de video.
+            </video>
+
+            <h3>Audio</h3>
+            <!--
+              HTML5: <audio> funciona igual que <video> pero solo para
+              sonido, sin necesidad de mostrar una ventana de video.
+            -->
+            <audio controls>
+                <source src="audio/demo.mp3" type="audio/mpeg">
+                Tu navegador no soporta la etiqueta de audio.
+            </audio>
+
+            <h3>Canvas</h3>
+            <p>
+                <!--
+                  HTML5: <canvas> crea un lienzo en el que se puede dibujar
+                  de forma dinámica usando JavaScript (gráficos, animaciones,
+                  visualizaciones de datos, juegos, etc.).
+                -->
+                El elemento <code>&lt;canvas&gt;</code> permite dibujar gráficos
+                en tiempo real con JavaScript. Aquí un ejemplo simple:
+            </p>
+            <!--
+              SELECTOR DE ID: id="miLienzo" permite que el CSS le dé un
+              borde específico a este canvas (ver #miLienzo en style.css),
+              en vez de usar el atributo style en línea como antes.
+            -->
+            <canvas id="miLienzo" width="300" height="150">
+                Tu navegador no soporta la etiqueta canvas.
+            </canvas>
+        </section>
+
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <p>
+                Puedes escribirme a través de este
+                <a href="mailto:gmedina6253@stu.nuc.edu" class="btn">correo electrónico</a>.
+            </p>
+        </section>
+
+    </main>
+
+    <!--
+      SEMÁNTICA HTML: <footer> identifica el pie de página, normalmente
+      con información secundaria como derechos de autor o enlaces legales.
+    -->
+    <footer>
+        <p>&copy; 2026 Gerardo J. Medina. Proyecto académico — Northbridge University.</p>
+    </footer>
+
+    <!-- Script simple para dibujar un rectángulo en el <canvas> -->
+    <script>
+        const lienzo = document.getElementById('miLienzo');
+        const contexto = lienzo.getContext('2d');
+        contexto.fillStyle = '#5e35b1';
+        contexto.fillRect(20, 20, 260, 110);
+    </script>
+
+</body>
+</html>
